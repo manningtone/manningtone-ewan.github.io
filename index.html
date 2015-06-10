@@ -66,40 +66,24 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="request-box">
-            <?php 
-$action=$_REQUEST['action']; 
-if ($action=="")    /* display the contact form */ 
-    { 
-    ?> 
-    <form  action="handler.php" method="POST" enctype="multipart/form-data"> 
-    <input type="hidden" name="action" value="submit"> 
-    Your name:<br> 
-    <input name="name" type="text" value="" size="30"/><br> 
-    Your email:<br> 
-    <input name="email" type="text" value="" size="30"/><br> 
-    Your message:<br> 
-    <input name="mobile" type="text" value="" size="30"/><br> 
-    <input type="submit" value="Send email"/> 
-    </form> 
-    <?php 
-    }  
-else                /* send the submitted data */ 
-    { 
-    $name=$_REQUEST['name']; 
-    $email=$_REQUEST['email']; 
-    $message=$_REQUEST['mobile']; 
-    if (($name=="")||($email=="")||($mobile=="")) 
-        { 
-        echo "All fields are required, please fill <a href=\"\">the form</a> again."; 
-        } 
-    else{         
-        $from="From: $name<$email>\r\nReturn-path: $email"; 
-        $subject="Message sent using your contact form"; 
-        mail("ewanmannington@live.co.uk", $subject, $message, $from); 
-        echo "Email sent!"; 
-        } 
-    }   
-?> 
+ <form id="phpcontactform" role="form" action="http://formtoemail.com/user_forms.php" method="post">
+              <fieldset>
+                <div class="request-box-head">Booking enquiries</div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter Your Email ">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                 <input type="submit" class="form-btn wobble-horizontal" value="Request a call back">
+                </div>
+               
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>
